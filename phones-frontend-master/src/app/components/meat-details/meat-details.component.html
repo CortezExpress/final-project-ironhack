@@ -1,0 +1,27 @@
+<strong>{{ meat.type }}</strong>
+<p>{{ meat.name }}</p>
+<img [src]="baseUrl+meat.image" alt="">
+
+
+<button *ngIf="meat._id" (click)="deleteThisMeat()">DELETE</button>
+
+<div>
+  <a [routerLink]="['/meats']">Take me back to list</a>
+</div>
+
+
+
+<!-- update meat area -->
+
+<form (ngSubmit)="doTheUpdate(meat._id, myForm)" #myForm="ngForm" >
+  <label for="meat-type-input"> Meat Type </label>
+  <input id="meat-type-input" type="text"  [(ngModel)]="meat.type" name="meatType" value="{{ meat.type }}">
+  <br>
+  <label for="meat-name-input"> Meat Name </label>
+  <input id="meat-name-input" type="text"  [(ngModel)]="meat.name" name="meatName" value="{{ meat.name }}">
+  <br>
+  <label for="meat-price-input"> Meat price </label>
+  <input id="meat-price-input" type="number"  [(ngModel)]="meat.price" name="meatPrice" value="{{ meat.price }}">
+  <br>
+  <button type="submit">Save updates</button>
+</form>

@@ -1,15 +1,15 @@
 <div *ngIf="currentUser">
   <header>
     <p> Hello, {{ currentUser.username }}. </p>
-    <a [routerLink]="['/add-phone']">Add a new phone</a>
+    <a [routerLink]="['/add-meat']">Add a new meat</a>
     <button (click)="logMeOutPls()"> Log Out </button>
     <p *ngIf="logoutError" class="error">
       {{ logoutError }}
     </p>
   </header>
-  <h2>Phones List</h2>
+  <h2>Meats List</h2>
 
-  <div *ngFor="let phone of phones">
-    <a [routerLink]="['/phones', phone._id]">{{ phone.brand }}</a>
+  <div *ngFor="let meat of meats">
+    <a [routerLink]="['/meats', meat._id]">{{ meat.type + ' ' + meat.name }}</a>
   </div>
 </div>

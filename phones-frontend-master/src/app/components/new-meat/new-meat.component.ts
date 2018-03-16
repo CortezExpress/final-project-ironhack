@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PhoneService } from '../../services/phone.service';
+import { MeatService } from '../../services/meat.service';
 import { AuthService } from "../../services/auth.service";
 import { FileUploader } from "ng2-file-upload";
 import { Router } from "@angular/router";
@@ -7,24 +7,24 @@ import { environment } from "../../../environments/environment";
 
 
 @Component({
-  selector: "app-new-phone",
-  templateUrl: "./new-phone.component.html",
-  styleUrls: ["./new-phone.component.css"]
+  selector: "app-new-meat",
+  templateUrl: "./new-meat.component.html",
+  styleUrls: ["./new-meat.component.css"]
 })
-export class NewPhoneComponent implements OnInit {
-  phoneData = {
-    phoneBrand: "",
-    phoneName: "",
-    phoneColor: ""
+export class NewMeatComponent implements OnInit {
+  meatData = {
+    meatType: "",
+    meatName: "",
+    meatPrice: ""
   };
   saveError: string;
 
   myCoolUploader = new FileUploader({
-    url: environment.apiBase + "/api/phones",
-    itemAlias: "phoneImage"
+    url: environment.apiBase + "/api/meats",
+    itemAlias: "meatImage"
   });
 
-  constructor(private myPhoneService: PhoneService, private myAuthService: AuthService, private myRouter: Router) {}
+  constructor(private myMeatService: MeatService, private myAuthService: AuthService, private myRouter: Router) {}
 
   ngOnInit() {
      this.myAuthService
@@ -39,57 +39,57 @@ export class NewPhoneComponent implements OnInit {
        });
   }
 
-  saveNewPhone() {
+  saveNewMeat() {
     if (this.myCoolUploader.getNotUploadedItems().length === 0) {
-      this.savePhoneNoImage();
+      this.saveMeatNoImage();
     } else {
-      this.savePhoneWithImage();
+      this.saveMeatWithImage();
     }
   }
 
-  private savePhoneNoImage() {
-    this.myPhoneService
-      .createNewPhone(this.phoneData)
-      .then(newPhone => {
-        this.phoneData = {
-          phoneBrand: "",
-          phoneName: "",
-          phoneColor: ""
+  private saveMeatNoImage() {
+    this.myMeatService
+      .createNewMeat(this.meatData)
+      .then(newMeat => {
+        this.meatData = {
+          meatType: "",
+          meatName: "",
+          meatColor: ""
         };
         this.saveError = "";
-        this.myRouter.navigate(["/phones"]);
+        this.myRouter.navigate(["/meats"]);
       })
       .catch(err => {
-        this.saveError = "Well, saving phone with no image went bad. Sorry!";
+        this.saveError = "Well, saving meat with no image went bad. Sorry!";
       });
-  } // close savePhoneNoImage()
+  } // close saveMeatNoImage()
 
-  private savePhoneWithImage(){
+  private saveMeatWithImage(){
     this.myCoolUploader.onBuildItemForm = (item, form) => {
       console.log("=============================")
       console.log("in onBuildItemForm - item", item);
       console.log("in onBuildItemForm - form", form);
       console.log("=============================");
 
-      form.append('phoneBrand', this.phoneData.phoneBrand);
-      form.append("phoneName", this.phoneData.phoneName);
-      form.append("phoneColor", this.phoneData.phoneColor);
+      form.append('meatType', this.meatData.meatType);
+      form.append("meatName", this.meatData.meatName);
+      form.append("meatColor", this.meatData.meatPrice);
     }
     this.myCoolUploader.onSuccessItem = (item, response) =>{
       console.log("=============================");
       console.log("in onSuccessItem - item", item);
       console.log("in onSuccessItem - response", response);
       console.log("=============================");
-      this.phoneData = {
-          phoneBrand: "",
-          phoneName: "",
-          phoneColor: ""
+      this.meatData = {
+        meatType: "",
+        meatName: "",
+        meatColor: ""
         };
         this.saveError = ""
-        this.myRouter.navigate(["/phones"]);
+        this.myRouter.navigate(["/meats"]);
     }
     this.myCoolUploader.onErrorItem = (item, response) => {
-      this.saveError = "Saving phone with image went bad. Sorry!";
+      this.saveError = "Saving meat with image went bad. Sorry!";
     }
     this.myCoolUploader.uploadAll();
   }

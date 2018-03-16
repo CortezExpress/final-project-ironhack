@@ -2,23 +2,23 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
-import { PhoneService } from "../../services/phone.service";
+import { MeatService } from "../../services/meat.service";
 import { environment } from "../../../environments/environment";
 
 @Component({
-  selector: "app-phones",
-  templateUrl: "./phones.component.html",
-  styleUrls: ["./phones.component.css"]
+  selector: "app-meats",
+  templateUrl: "./meats.component.html",
+  styleUrls: ["./meats.component.css"]
 })
-export class PhonesComponent implements OnInit {
+export class MeatsComponent implements OnInit {
   currentUser: any = {};
   logoutError: string;
-  phones: Array<Object> = [];
-  phoneListError: string;
+  meats: Array<Object> = [];
+  meatListError: string;
 
   constructor(
     private myAuthService: AuthService,
-    private myPhoneService: PhoneService,
+    private myMeatService: MeatService,
     private myRouter: Router
   ) {}
 
@@ -28,7 +28,7 @@ export class PhonesComponent implements OnInit {
       // If success, we are logged in.
       .then(resultFromApi => {
         this.currentUser = resultFromApi;
-        this.getThePhones()
+        this.getTheMeats()
       })
 
       // Even if you don't do anything on error, catch to avoid a console error.
@@ -50,18 +50,18 @@ export class PhonesComponent implements OnInit {
   } // close logMeOutPls()
 
 
-  // get all the phones
-  getThePhones() {
-    this.myPhoneService.getAllPhones()
-    .subscribe(allThePhones => {
-      console.log("allThePhones: ", allThePhones)
-        this.phones = allThePhones;
+  // get all the meats
+  getTheMeats() {
+    this.myMeatService.getAllMeats()
+    .subscribe(allTheMeats => {
+      console.log("allTheMeats: ", allTheMeats)
+        this.meats = allTheMeats;
       },
       () => {
-        this.phoneListError = "Sorry, no phones.";
+        this.meatListError = "Sorry, no meats.";
       }
     );
-  } // close getThePhones()
+  } // close getTheMeats()
 
 
 }

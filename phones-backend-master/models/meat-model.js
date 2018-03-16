@@ -16,9 +16,8 @@ const MeatSchema = new Schema({
         image: { 
             type: String 
         },
-        shoppingCart: { 
+        cart: { 
             type: Schema.Types.ObjectId,
-            required: true,
             ref: 'ShoppingCart'
         } 
     },

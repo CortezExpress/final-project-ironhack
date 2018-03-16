@@ -4,38 +4,38 @@ import "rxjs/add/operator/map";
 import { environment } from "../../environments/environment";
 
 @Injectable()
-export class PhoneService {
+export class MeatService {
 
   constructor(private myHttp: Http) {}
 
-  getAllPhones(){
-    return this.myHttp.get(`${environment.apiBase}/api/phones`,
+  getAllMeats(){
+    return this.myHttp.get(`${environment.apiBase}/api/meats`,
     { withCredentials: true })
     .map(res => res.json())
   }
 
   getId(id){
-    return this.myHttp.get(`${environment.apiBase}/api/phones/${id}`,
+    return this.myHttp.get(`${environment.apiBase}/api/meats/${id}`,
           { withCredentials: true })
           .toPromise()
           .then(res => res.json())
           // .map(res => res.json())
   }
 
-  createNewPhone(dataToSend){
+  createNewMeat(dataToSend){
     return this.myHttp
-      .post(`${environment.apiBase}/api/phones`, dataToSend, { withCredentials: true })
+      .post(`${environment.apiBase}/api/meats`, dataToSend, { withCredentials: true })
       .toPromise()
       .then(res => res.json());
   }
 
-  updatePhone(id, updates){
-    return this.myHttp.put(`${environment.apiBase}/api/phones/${id}`, updates, { withCredentials: true })
+  updateMeat(id, updates){
+    return this.myHttp.put(`${environment.apiBase}/api/meats/${id}`, updates, { withCredentials: true })
     .map(res => res.json());
   }
 
-  deletePhone(id){
-    return this.myHttp.delete(`${environment.apiBase}/api/phones/${id}`,
+  deleteMeat(id){
+    return this.myHttp.delete(`${environment.apiBase}/api/meats/${id}`,
         { withCredentials: true })
         .toPromise()
   }

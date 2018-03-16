@@ -2,9 +2,9 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { SignupComponent } from "./components/signup/signup.component";
 import { LoginComponent } from "./components/login/login.component";
-import { PhonesComponent } from "./components/phones/phones.component";
-import { PhoneDetailsComponent } from "./components/phone-details/phone-details.component";
-import { NewPhoneComponent } from "./components/new-phone/new-phone.component";
+import { MeatsComponent } from "./components/meats/meats.component";
+import { MeatDetailsComponent } from "./components/meat-details/meat-details.component";
+import { NewMeatComponent } from "./components/new-meat/new-meat.component";
 
 const routes: Routes = [
   {
@@ -17,16 +17,16 @@ const routes: Routes = [
   },
 
   {
-    path: "phones",
-    component: PhonesComponent
+    path: "meats",
+    component: MeatsComponent
   },
   {
-    path: "phones/:id",
-    component: PhoneDetailsComponent
+    path: "meats/:id",
+    component: MeatDetailsComponent
   },
   {
-    path: "add-phone",
-    component: NewPhoneComponent
+    path: "add-meat",
+    component: NewMeatComponent
   }
 ];
 

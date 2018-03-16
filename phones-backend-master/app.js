@@ -11,7 +11,7 @@ var cors = require('cors');
 
 require('./configs/passport-config');
 
-mongoose.connect('mongodb://localhost/myTry')
+mongoose.connect('mongodb://localhost/meat-shop')
 
 var app = express();
 
@@ -50,8 +50,8 @@ app.use("/", index);
 var authRoutes = require("./routes/auth-routes");
 app.use("/", authRoutes);
 
-var phoneRoutes = require("./routes/phone-routes");
-app.use("/", phoneRoutes);
+var meatRoutes = require("./routes/meat-routes");
+app.use("/", meatRoutes);
 
 // =======================================
 

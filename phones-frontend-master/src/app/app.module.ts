@@ -7,14 +7,14 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './components/signup/signup.component';
 // services
 import { AuthService } from './services/auth.service';
-import { PhoneService } from "./services/phone.service";
+import { MeatService } from "./services/meat.service";
 
 // routes
 import { AppRoutingModule } from "./app-routing.module";
 import { LoginComponent } from './components/login/login.component';
-import { PhonesComponent } from './components/phones/phones.component';
-import { PhoneDetailsComponent } from './components/phone-details/phone-details.component';
-import { NewPhoneComponent } from './components/new-phone/new-phone.component';
+import { MeatsComponent } from './components/meats/meats.component';
+import { MeatDetailsComponent } from './components/meat-details/meat-details.component';
+import { NewMeatComponent } from './components/new-meat/new-meat.component';
 
 // image stuff
 import { FileUploadModule } from "ng2-file-upload";
@@ -25,9 +25,9 @@ import { FileUploadModule } from "ng2-file-upload";
     AppComponent,
     SignupComponent,
     LoginComponent,
-    PhonesComponent,
-    PhoneDetailsComponent,
-    NewPhoneComponent
+    MeatsComponent,
+    MeatDetailsComponent,
+    NewMeatComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +36,7 @@ import { FileUploadModule } from "ng2-file-upload";
     AppRoutingModule,
     FileUploadModule
   ],
-  providers: [AuthService, PhoneService],
+  providers: [AuthService, MeatService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
