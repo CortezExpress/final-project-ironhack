@@ -65,12 +65,12 @@ export class MeatDetailsComponent implements OnInit {
     console.log("=============== formData: ", formInfo.meatName);
     this.meatType = formInfo.meatType.value;
     this.meatName = formInfo.meatName.value;
-    this.meatColor = formInfo.meatColor.value;
+    this.meatPrice = formInfo.meatPrice.value;
     this.sendUpdatesToApi(id);
   }
 
   sendUpdatesToApi(id){
-    this.updatedMeat = { meatType: this.meat.brand, meatName: this.meat.name, meatColor: this.meat.color };
+    this.updatedMeat = { meatType: this.meat.type, meatName: this.meat.name, meatPrice: this.meat.price };
     console.log("updates:", this.updatedMeat)
     this.myMeatService.updateMeat(id, this.updatedMeat)
       .toPromise()

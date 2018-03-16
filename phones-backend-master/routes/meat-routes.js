@@ -100,9 +100,9 @@ meatRoutes.put('/api/meats/:id', (req, res, next) => {
     }
 
     const updates = {
-        brand: req.body.meatType,
+        type: req.body.meatType,
         name: req.body.meatName,
-        color: req.body.meatColor,
+        price: req.body.meatPrice,
         // image: req.body.image    
     };
 

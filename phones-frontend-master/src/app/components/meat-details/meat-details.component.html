@@ -1,5 +1,5 @@
-<strong>{{ meat.type }}</strong>
-<p>{{ meat.name }}</p>
+<strong>{{ meat.name }}</strong>
+<p>{{ meat.type }}</p>
 <img [src]="baseUrl+meat.image" alt="">
 
 
@@ -9,19 +9,28 @@
   <a [routerLink]="['/meats']">Take me back to list</a>
 </div>
 
-
-
 <!-- update meat area -->
 
 <form (ngSubmit)="doTheUpdate(meat._id, myForm)" #myForm="ngForm" >
-  <label for="meat-type-input"> Meat Type </label>
-  <input id="meat-type-input" type="text"  [(ngModel)]="meat.type" name="meatType" value="{{ meat.type }}">
-  <br>
   <label for="meat-name-input"> Meat Name </label>
-  <input id="meat-name-input" type="text"  [(ngModel)]="meat.name" name="meatName" value="{{ meat.name }}">
+    <input id="meat-name-input" type="text" [(ngModel)]="meat.name" name="meatName" value="{{ meat.name }}">
   <br>
-  <label for="meat-price-input"> Meat price </label>
-  <input id="meat-price-input" type="number"  [(ngModel)]="meat.price" name="meatPrice" value="{{ meat.price }}">
+
+  <label for="meat-type-input"> Meat Type </label>
+    <select id="meat-type-input" [(ngModel)]="meat.type" name="meatType" value="{{ meat.type }}">
+      <option value="Poultry">Poultry</option>
+      <option value="Beef">Beef</option>
+      <option value="Lamb">Lamb</option>
+    </select>
   <br>
-  <button type="submit">Save updates</button>
+
+  <label for="meat-price-input"> Meat Price </label>
+    <input id="meat-price-input" type="dropdown" [(ngModel)]="meat.price" name="meatPrice"value="{{ meat.price }}">
+  <br>
+
+  <!-- <label for="meat-image-input"> Meat Image (optional)</label>
+    <input id="meat-image-input" type="file" name="meatImage" ng2FileSelect [uploader]="myCoolUploader">
+  <br> -->
+
+  <button> Save Meat </button>
 </form>
