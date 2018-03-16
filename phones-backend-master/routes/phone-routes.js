@@ -103,7 +103,7 @@ phoneRoutes.put('/api/phones/:id', (req, res, next) => {
         brand: req.body.phoneBrand,
         name: req.body.phoneName,
         color: req.body.phoneColor,
-        image: req.body.image    
+        // image: req.body.image    
     };
 
   Phone.findByIdAndUpdate(req.params.id, updates, err => {
