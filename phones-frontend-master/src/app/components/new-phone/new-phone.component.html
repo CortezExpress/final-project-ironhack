@@ -1,0 +1,25 @@
+<h3>Add a new phone</h3>
+  <p *ngIf="saveError" class="error">
+    {{ saveError }}
+  </p>
+
+<form (ngSubmit)="saveNewPhone()">
+
+  <label for="phone-brand-input"> Phone Brand </label>
+  <input id="phone-brand-input" type="text" placeholder="Phone brand" [(ngModel)]="phoneData.phoneBrand" name="phoneBrand" required>
+  <br>
+
+  <label for="phone-name-input"> Phone Name </label>
+  <input id="phone-name-input" type="text" placeholder="Phone name" [(ngModel)]="phoneData.phoneName" name="phoneName">
+  <br>
+
+  <label for="phone-color-input"> Phone Color </label>
+  <input id="phone-color-input" type="color" [(ngModel)]="phoneData.phoneColor" name="phoneColor">
+  <br>
+
+  <label for="phone-image-input"> Phone Image (optional)</label>
+  <input id="phone-image-input" type="file" name="phoneImage" ng2FileSelect [uploader]="myCoolUploader">
+  <br>
+
+  <button> Save Phone </button>
+</form>
