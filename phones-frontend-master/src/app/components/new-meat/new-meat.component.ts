@@ -54,7 +54,8 @@ export class NewMeatComponent implements OnInit {
         this.meatData = {
           meatType: "",
           meatName: "",
-          meatColor: ""
+          meatPrice: ""
+          // quantity: 0
         };
         this.saveError = "";
         this.myRouter.navigate(["/meats"]);
@@ -83,7 +84,8 @@ export class NewMeatComponent implements OnInit {
       this.meatData = {
         meatType: "",
         meatName: "",
-        meatColor: ""
+        meatPrice: ""
+        // quantity: 0
         };
         this.saveError = ""
         this.myRouter.navigate(["/meats"]);

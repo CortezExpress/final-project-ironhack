@@ -8,9 +8,9 @@ import { environment } from "../../../environments/environment";
 import "rxjs/add/operator/toPromise";
 
 @Component({
-  selector: "app-meat-details",
-  templateUrl: "./meat-details.component.html",
-  styleUrls: ["./meat-details.component.css"]
+  selector: 'app-meat-details',
+  templateUrl: './meat-details.component.html',
+  styleUrls: ['./meat-details.component.css']
 })
 export class MeatDetailsComponent implements OnInit {
   meat = <any>{};
@@ -18,7 +18,7 @@ export class MeatDetailsComponent implements OnInit {
   public updatedMeat: Object = {};
   public meatName: String;
   public meatType: String;
-  public meatColor: String;
+  public meatPrice: Number;
 
   // meatData = {
   //   meatType:"",
@@ -78,6 +78,20 @@ export class MeatDetailsComponent implements OnInit {
         this.myRouter.navigate(['/meats'])
       })
       .catch()
+  }
+
+  addToMyCart(){
+    this.myRouter.navigate(['/cart']);
+    // const existingFood = this.myCart.find(item => item.name === meat.name)
+    // const quantity = Number(quantityInput.value)
+
+    // if (existingFood){
+    //   existingFood.quantity += quantity;
+    // } else {
+    //   meat.quantity = quantity;
+    //   this.myCart.push(meat);
+    // }
+    // this.quantity = 1;
   }
 
   deleteThisMeat(){

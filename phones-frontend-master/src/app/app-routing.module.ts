@@ -5,6 +5,9 @@ import { LoginComponent } from "./components/login/login.component";
 import { MeatsComponent } from "./components/meats/meats.component";
 import { MeatDetailsComponent } from "./components/meat-details/meat-details.component";
 import { NewMeatComponent } from "./components/new-meat/new-meat.component";
+import { AccessoriesComponent } from "./components/accessories/accessories.component";
+import { AccessoryDetailsComponent } from "./components/accessory-details/accessory-details.component";
+import { NewAccessoryComponent } from "./components/new-accessory/new-accessory.component";
 
 const routes: Routes = [
   {
@@ -27,6 +30,18 @@ const routes: Routes = [
   {
     path: "add-meat",
     component: NewMeatComponent
+  },
+  {
+    path: "accessories",
+    component: AccessoriesComponent
+  },
+  {
+    path: "accessories/:id",
+    component: AccessoryDetailsComponent
+  },
+  {
+    path: "add-accessory",
+    component: NewAccessoryComponent
   }
 ];
 
@@ -34,4 +49,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {}

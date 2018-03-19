@@ -1,0 +1,27 @@
+<h3>Add a new accessory</h3>
+  <p *ngIf="saveError" class="error">
+    {{ saveError }}
+  </p>
+
+<form (ngSubmit)="saveNewAccessory()">
+
+  
+
+  <label for="accessory-name-input"> Accessory Name </label>
+  <input id="accessory-name-input" type="text" placeholder="Accessory name" [(ngModel)]="accessoryData.accessoryName" name="accessoryName">
+  <br>
+
+  <label for="accessory-price-input"> Accessory Price </label>
+  <input id="accessory-price-input" type="number" [(ngModel)]="accessoryData.accessoryPrice" name="accessoryPrice">
+  <br>
+
+  <label for="accessory-description-input"> Accessory Description </label>
+  <input id="accessory-description-input" type="text" [(ngModel)]="accessoryData.accessoryDescripton" name="accessoryDescription">
+  <br>
+
+  <label for="accessory-image-input"> Accessory Image (optional)</label>
+  <input id="accessory-image-input" type="file" name="accessoryImage" ng2FileSelect [uploader]="myCoolUploader">
+  <br>
+
+  <button> Save Accessory </button>
+</form>

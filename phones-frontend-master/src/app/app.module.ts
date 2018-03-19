@@ -8,6 +8,7 @@ import { SignupComponent } from './components/signup/signup.component';
 // services
 import { AuthService } from './services/auth.service';
 import { MeatService } from "./services/meat.service";
+import { AccessoryService } from "./services/accessory.service"
 
 // routes
 import { AppRoutingModule } from "./app-routing.module";
@@ -15,9 +16,15 @@ import { LoginComponent } from './components/login/login.component';
 import { MeatsComponent } from './components/meats/meats.component';
 import { MeatDetailsComponent } from './components/meat-details/meat-details.component';
 import { NewMeatComponent } from './components/new-meat/new-meat.component';
+import { AccessoriesComponent } from './components/accessories/accessories.component';
+import { AccessoryDetailsComponent } from './components/accessory-details/accessory-details.component';
+import { NewAccessoryComponent } from './components/new-accessory/new-accessory.component';
 
 // image stuff
 import { FileUploadModule } from "ng2-file-upload";
+import { UserComponent } from './components/user/user.component';
+import { CartComponent } from './components/cart/cart.component';
+
 
 
 @NgModule({
@@ -27,7 +34,12 @@ import { FileUploadModule } from "ng2-file-upload";
     LoginComponent,
     MeatsComponent,
     MeatDetailsComponent,
-    NewMeatComponent
+    NewMeatComponent,
+    AccessoriesComponent,
+    AccessoryDetailsComponent,
+    NewAccessoryComponent,
+    UserComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +48,7 @@ import { FileUploadModule } from "ng2-file-upload";
     AppRoutingModule,
     FileUploadModule
   ],
-  providers: [AuthService, MeatService],
+  providers: [AuthService, MeatService, AccessoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

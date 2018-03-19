@@ -53,6 +53,9 @@ app.use("/", authRoutes);
 var meatRoutes = require("./routes/meat-routes");
 app.use("/", meatRoutes);
 
+var accessoryRoutes = require("./routes/accessory-routes");
+app.use("/", accessoryRoutes);
+
 // =======================================
 
 

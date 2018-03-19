@@ -4,6 +4,7 @@ const multer = require('multer');
 const meatRoutes = express.Router();
 
 const Meat = require('../models/meat-model');
+const User = require('../models/user-model');
 
 // multer for photo
 const myUploader = multer({
@@ -21,7 +22,7 @@ meatRoutes.post('/api/meats', myUploader.single('meatImage'), (req, res, next) =
       name: req.body.meatName,
       price: req.body.meatPrice,
       type: req.body.meatType,
-      image: req.body.meatImage,
+      image: req.body.meatImage
     });
     if(req.file){
         newMeat.image = '/uploads/' + req.file.filename;
@@ -116,6 +117,46 @@ meatRoutes.put('/api/meats/:id', (req, res, next) => {
       message: "Meat updated successfully."
     });
   });
+});
+
+// add the meat to the cart
+meatRoutes.post('/api/cart/:id', (req, res, next) => {
+  if (!req.user) {
+    res.status(401).json({ message: "Log in to add item to cart." });
+    return;
+  }
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      res.status(400).json({ message: "Specified id is not valid" });
+      return;
+  }
+
+  const updates = {
+      type: req.body.meatType,
+      name: req.body.meatName,
+      price: req.body.meatPrice,
+      // image: req.body.image    
+  };
+
+// Meat.findById(req.params.id, (err, meat) => {
+//   if (err) {
+//     res.json(err);
+//     return;
+//   }
+
+User.findById(req.user._id, (err, user) => {
+    if (err){
+      res.json(err);
+      return
+    }
+
+    user.cart.push(req.params.id)
+    console.log(user)
+})
+
+  res.json({
+    message: "Meat successfully added to cart."
+  });
+// });
 });
 
 // delete meat
