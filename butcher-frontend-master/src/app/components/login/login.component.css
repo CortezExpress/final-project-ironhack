@@ -1,0 +1,20 @@
+.error {
+  padding: 15px;
+  border: 2px solid crimson;
+  border-radius: 3px;
+  color: crimson;
+}
+.form-login{
+  color: yellowgreen;
+  padding-top: 65%;
+}
+.input-box  {
+  width: 25em;
+}
+.lambPic {
+  margin-top: 100px;
+  height: 600px;
+  background-image: url('lambCuts.png');
+
+
+}

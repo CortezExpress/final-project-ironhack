@@ -1,0 +1,77 @@
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+
+<nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">The Butcher Man</a>
+    </div>
+  
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a [routerLink]="['/login']">Login</a></li>
+       
+        <li><a [routerLink]="['/signup']">Signup</a></li>
+        
+      </ul>
+      <div class="col-sm-3 col-md-3">
+        <form class="navbar-form" role="search" method="get" action="/items/search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for Item" name="itemSearchTerm" id="search-term-input">
+            <div class="input-group-btn">
+              <button class="btn btn-de`ult" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </form>
+    </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <!-- <form action="/logout" method="POST">
+            <button (click)="logMeOutPls()" class="btn btn-link btn-logout"> Log Out </button>
+              
+          </form> -->
+        </li>
+        <li>
+            <form action="/logout" method="POST">
+              <button (click)="logMeOutPls()" class="btn btn-link btn-logout"> Log Out </button>
+                
+            </form>
+          </li>
+        <li class="dropdown">
+          <a [routerLink]="['/accessories']" class="dropdown-toggle">Accessories</a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
+  
+<div class="meatsDiv"> 
+  <div *ngIf="currentUser">
+    <header>
+      <h1>Hello, {{ currentUser.username }} </h1> 
+      <a style="font-size: 100px" [routerLink]="['/add-meat']">Would You Like To Add A New Meat?</a>
+      <!-- <button (click)="logMeOutPls()"> Log Out </button>
+      <p *ngIf="logoutError" class="error">
+        {{ logoutError }}
+      </p> -->
+    </header>
+    <li><a [routerLink]="['/accessories']">Check Out Our Banging Accessories!!!</a></li>
+
+
+    <h2>Meats List</h2>
+
+    <div *ngFor="let meat of meats">
+      <a [routerLink]="['/meats', meat._id]">{{ meat.type + ' ' + meat.name }}</a>
+      <!-- <button (click)="addToMyCart(id)">Add to Cart</button> -->
+    </div>
+  </div>
+</div>

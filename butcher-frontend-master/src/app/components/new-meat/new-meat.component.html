@@ -1,0 +1,28 @@
+<h3>Add a new meat</h3>
+  <p *ngIf="saveError" class="error">
+    {{ saveError }}
+  </p>
+
+<form (ngSubmit)="saveNewMeat()">
+
+  <label for="meat-type-input"> Meat Type </label>
+  <select id="meat-type-input" [(ngModel)]="meatData.meatType" name="meatType" required>
+    <option value="Poultry">Poultry</option>
+    <option value="Beef">Beef</option>
+    <option value="Lamb">Lamb</option>
+  </select>
+
+  <label for="meat-name-input"> Meat Name </label>
+  <input id="meat-name-input" type="text" placeholder="Meat name" [(ngModel)]="meatData.meatName" name="meatName">
+  <br>
+
+  <label for="meat-price-input"> Meat Price </label>
+  <input id="meat-price-input" type="number" [(ngModel)]="meatData.meatPrice" name="meatPrice">
+  <br>
+
+  <label for="meat-image-input"> Meat Image (optional)</label>
+  <input id="meat-image-input" type="file" name="meatImage" ng2FileSelect [uploader]="myCoolUploader">
+  <br>
+
+  <button> Save Meat </button>
+</form>

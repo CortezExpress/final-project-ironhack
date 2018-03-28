@@ -1,0 +1,35 @@
+<strong>{{ accessory.name }}</strong>
+<p>{{ accessory.price }}</p>
+<img [src]="baseUrl+accessory.image" alt="">
+
+
+<button *ngIf="accessory._id" (click)="deleteThisAccessory()">DELETE</button>
+
+<div>
+  <a [routerLink]="['/accessories']">Take me back to Accesory list</a>
+</div>
+
+
+
+<form (ngSubmit)="doTheUpdate(accessory._id, myForm)" #myForm="ngForm" >
+  <label for="accessory-name-input"> Accessory Name </label>
+    <input id="accessory-name-input" type="text" [(ngModel)]="accessory.name" name="accessoryName" value="{{ accessory.name }}">
+  <br>
+
+  <label for="accessory-price-input"> Accessory Price </label>
+    <input id="accessory-price-input" type="dropdown" [(ngModel)]="accessory.price" name="accessoryPrice"value="{{ accessory.price }}">
+  <br>
+
+  <label for="accessory-description-input"> Accessory Description </label>
+    <input id="accessory-description-input" type="text" [(ngModel)]="accessory.description" name="accessoryDescription"value="{{ accessory.description }}">
+  <br>
+  
+  <!-- <label for="accessory-image-input"> Accessory Image (optional)</label>
+    <input id="accessory-image-input" type="file" name="accessoryImage" ng2FileSelect [uploader]="myCoolUploader">
+  <br> -->
+
+  <!-- <button (click)="addToMyCart()">Add to Cart</button> -->
+  <!-- <input type="text" #quantity value="1"> -->
+
+  <button> Save Accessory </button>
+</form>

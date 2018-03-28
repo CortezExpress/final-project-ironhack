@@ -1,0 +1,27 @@
+.error {
+  padding: 15px;
+  border: 2px solid crimson;
+  border-radius: 3px;
+  color: crimson;
+}
+.form-login{
+  height: 1200px;
+  color: black;
+  padding-top: 65%;
+}
+.input-box  {
+  width: 25em;
+}
+.lambPic {
+  margin-top: 100px;
+  height: 730px;
+  background-image: url('canvasCow.png');
+
+
+}
+h1 {
+  font-size: 45px;
+}
+
+
+

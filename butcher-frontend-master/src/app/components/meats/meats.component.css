@@ -1,0 +1,23 @@
+.error {
+  padding: 15px;
+  border: 2px solid crimson;
+  border-radius: 3px;
+  color: crimson;
+}
+.meatsDiv{
+  height: 900px;
+  text-align: center;
+  margin-top: 0%;
+  background: url('./meatsPic.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.btn-logout {
+  color: black;
+}
+a {
+  color: black;
+}

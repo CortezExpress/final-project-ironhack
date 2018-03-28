@@ -10,7 +10,7 @@ var passport = require('passport');
 var cors = require('cors');
 
 require('./configs/passport-config');
-
+require('dotenv').config();
 // mongoose.connect('mongodb://localhost/meat-shop')
 mongoose.connect(process.env.MONGODB_URI)
 

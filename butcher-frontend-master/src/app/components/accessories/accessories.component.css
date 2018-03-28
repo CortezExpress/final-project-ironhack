@@ -1,0 +1,16 @@
+.accessoriesDiv{
+    height: 700px;
+    text-align: center;
+    margin-top: 0%;
+    background-image: url('./accessoriesPic.png');
+    background-repeat: no-repeat;
+    background-position: 50% 0px;
+    background-size: 775px 600px;
+    padding-bottom: 400px;
+  }
+  .btn-logout {
+    color: black;
+  }
+  a {
+    color: black;
+  }

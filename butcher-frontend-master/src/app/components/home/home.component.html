@@ -1,0 +1,129 @@
+<!-- <a [routerLink]="['/login']">Login</a>
+<a [routerLink]="['/signup']">Signup</a> -->
+<!-- <a [routerLink]="['/meats']">Meats</a>
+<a [routerLink]="['/accessories']">Accessories</a> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Butcher-Man</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous">
+  </script>
+  </head>
+  <body>
+
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">The Butcher Man</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="active"><a [routerLink]="['/login']">Login</a></li>
+     
+      <li><a [routerLink]="['/signup']">Signup</a></li>
+      
+    </ul>
+    <div class="col-sm-3 col-md-3">
+      <form class="navbar-form" role="search" method="get" action="/items/search">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for Item" name="itemSearchTerm" id="search-term-input">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+          </div>
+        </div>
+      </form>
+        <!-- <form class="navbar-form" role="search" method="get" action="/locations/search">
+        <div class="input-group"> 
+            <input type="text" class="form-control" placeholder="Search by City" name="locationSearchTerm" id="search-term-input">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>      
+        </form> -->
+    <!-- </div> -->
+  </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <form action="/logout" method="POST">
+          <button (click)="logMeOutPls()" class="btn btn-link btn-logout"> Log Out </button>
+            
+        </form>
+      </li>
+      <li class="dropdown">
+        <a [routerLink]="['/meats']" class="dropdown-toggle">Fabulous Dropdown</a>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+    <div class="main-container">
+          <!-- Header -->
+    <header>
+        <div class="container" id="topContainer">
+            <div class="intro-text">
+                <div class="intro-lead-in">The Butcher Man</div>
+
+                <div class="intro-heading">Mary had a little lamb... "had" being the operative word</div>
+                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container services-contain">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Services</h2>
+                    <h3 class="section-subheading text-muted">If it is alive and someone wants to eat it, we'll kill it</h3>
+                </div>
+            </div>
+            <div class="row text-center masterful">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading creamy">E-Commerce</h4>
+                    <p class="text-muted hello">OVERNIGHT DELIVERY OF YOUR CHOICE MEAT!!!!</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading creamy">EMAIL US</h4>
+                    <p class="text-muted hello">WE HAVE A COMPUTER AND LOVE TO HEAR FROM OUR CARNIVEROUS CUSTOMERS</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading creamy">Web Security</h4>
+                    <p class="text-muted hello">WE HAVE NO WEB SECURITY!!!!</p>
+                </div>
+            </div>
+        </div>
+        <div id="pusherman">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/hCDAfa-NI-M?&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </section>
+    </div>
+    <!-- <script type="text/javascript" src="../javascripts/maps.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+  </body>
+</html>
